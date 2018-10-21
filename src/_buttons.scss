@@ -1,0 +1,22 @@
+@mixin tab($border-color, $border-size, $active-border-color, $background-color, $active-background-color, $adjust-hue: '') {
+    @if $adjust-hue != '' {
+        background-color:adjust-hue($background-color, $adjust-hue);
+        border-bottom:$border-size solid adjust-hue($border-color, $adjust-hue);
+        cursor:pointer;
+        &.active{
+            background-color:adjust-hue($active-background-color, $adjust-hue);
+            border-bottom:$border-size solid adjust-hue($active-border-color, $adjust-hue);
+            cursor:default;
+        }
+    } @else {
+        background-color:$background-color;
+        border-bottom:$border-size solid $border-color;
+        cursor:pointer;
+        &.active{
+            background-color:$active-background-color;
+            border-bottom:$border-size solid $active-border-color;
+            cursor:default;
+        }
+    }
+
+}

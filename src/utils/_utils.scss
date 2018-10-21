@@ -1,0 +1,37 @@
+@mixin font-size($size-value: 1.6) {
+    font-size:$size-value + rem;
+}
+
+$key-shadow-umbra-colour: rgba(black, .07);
+$key-shadow-penumbra-colour: rgba(black, .06);
+$ambient-shadow-colour: rgba(black, .10);
+
+$key-shadow-umbra-map: (
+  1: 0 1px 6px 0 $key-shadow-umbra-colour,
+  2: 0 6px 10px 0 $key-shadow-umbra-colour,
+  3: 0 9px 12px 2px $key-shadow-umbra-colour,
+  4: 0 12px 16px 2px $key-shadow-umbra-colour,
+  5: 0 15px 22px 2px $key-shadow-umbra-colour,
+);
+
+$key-shadow-penumbra-map: (
+  1: 0 3px 4px 0 $key-shadow-penumbra-colour,
+  2: 0 1px 18px 0 $key-shadow-penumbra-colour,
+  3: 0 3px 18px 3px $key-shadow-penumbra-colour,
+  4: 0 5px 22px 4px $key-shadow-penumbra-colour,
+  5: 0 6px 34px 5px $key-shadow-penumbra-colour,
+);
+
+$ambient-shadow-map: (
+  1: 0 1px 7px 0 $ambient-shadow-colour,
+  2: 0 3px 5px 0 $ambient-shadow-colour,
+  3: 0 5px 11px 0 $ambient-shadow-colour,
+  4: 0 6px 13px 0 $ambient-shadow-colour,
+  5: 0 7px 14px 0 $ambient-shadow-colour,
+);
+
+@mixin elevation ($elevation) {
+  box-shadow: map-get($key-shadow-umbra-map, $elevation),
+    map-get($key-shadow-penumbra-map, $elevation),
+    map-get($ambient-shadow-map, $elevation);
+}

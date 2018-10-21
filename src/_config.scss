@@ -1,0 +1,42 @@
+// Colors : Masthead
+$masthead-background-color:#9c1587;
+$masthead-nav-active-color:#c119a7;
+$masthead-nav-active-color-darker:#9c1587;
+$masthead-nav-color:#d23fbb;
+$masthead-nav-color-lighter:#e479d4;
+
+:root {
+
+    // Colors
+    --main-color: #00B5FC;
+    --main-color-darker: #00A0DF;
+    --second-color: #39444D;
+    --second-color-darker: #272F37;
+    --third-color: #FBFBFC;
+    --third-color-darker: #ececf1;
+    --reset-color:#ffffff;
+
+    --link-color:gray;
+    --link-hover-color:rgba(0,0,0, 0.87);
+    --link-hover-color-inverted:#ececf1;
+
+    --border-color:whitesmoke;
+    --border-color-darker:rgba(0,0,0, 0.25);
+
+    // Gutters
+    --std-gutter:0.6rem;
+    --std-gutter-ex:0.9735rem;
+    --hero-gutter:2rem;
+    --hero-gutter-ex:3rem;
+
+    // Borders
+    --border-radius:4px;
+    --border-radius-sm:2px;
+    --border-radius-default:0;
+
+    // Fonts
+    --main-font:'IBM Plex Sans', sans-serif;
+
+    // Heights
+    --main-row-height:44.8px;
+}

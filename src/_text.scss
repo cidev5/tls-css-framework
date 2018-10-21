@@ -1,0 +1,43 @@
+@import 'utils/utils.scss';
+
+@mixin text-xxs{
+    @include font-size(1.1);
+}
+
+@mixin text-xs{
+    @include font-size(1.2);
+}
+
+@mixin text-sm{
+    @include font-size(1.3);
+}
+
+@mixin text-md{
+    @include font-size(1.5);
+}
+
+@mixin text-lg{
+    @include font-size(1.6);
+}
+
+@mixin text-title{
+    @include font-size(1.8);
+}
+
+@mixin text-hero($font-weight: 300){
+    @include font-size(2.4);
+    font-weight:$font-weight;
+}
+@mixin text-super-hero($font-weight: 300){
+    @include font-size(3.6);
+    font-weight:$font-weight;
+}
+
+@mixin text-color-link($color, $hover-color){
+    a{
+        color:$color;
+        &:hover{
+            color:$hover-color;
+        }
+    }
+}

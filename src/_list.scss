@@ -1,0 +1,15 @@
+%base-list{
+    list-style:none;
+    margin:0;
+}
+
+@mixin list($indent) {
+    @extend %base-list;
+    padding:0;
+    li{
+        @extend %base-list;
+    }
+    ul{
+        padding-left:$indent;
+    }
+}

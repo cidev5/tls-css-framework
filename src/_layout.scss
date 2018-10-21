@@ -1,0 +1,78 @@
+@mixin container($background-color: '', $color: '' , $height: '') {
+
+    @if $background-color != '' {
+        background-color:$background-color;
+    }
+
+    @if $color != '' {
+        color:$color;
+    }
+
+    @if $height != '' {
+        height:$height;
+    }
+}
+
+@mixin row($alignment: center) {
+    display:flex;
+    align-items:$alignment;
+}
+
+@mixin masthead($background-color, $border-color: '', $adjust-hue: '') {
+
+    @if $adjust-hue != '' {
+        background-color:adjust-hue($background-color, $adjust-hue);
+    } @else {
+        background-color:$background-color;
+    }
+    @if $border-color != '' {
+        border-bottom:1px solid $border-color;
+    }
+}
+
+@mixin grid-base($gap: '') {
+    display:grid;
+    @if $gap != '' {
+        grid-gap:$gap;
+    }
+}
+
+@mixin grid-1-up($number-columns) {
+    $columns: '';
+    @for $i from 1 through $number-columns {
+        $columns: '1fr ' + $columns;
+    }
+
+    grid-template-columns: unquote($columns);
+    grid-template-rows: 1fr;
+}
+
+@mixin grid-2-up($number-columns, $break-point) {
+    $columns: '';
+    @for $i from 1 through 2 * round($number-columns / 2) / 2 {
+        $columns: '1fr ' + $columns;
+    }
+    
+    grid-template-columns: unquote($columns);
+    grid-template-rows: 1fr 1fr;
+
+    $columns: '';
+    @for $i from 1 through $number-columns {
+        $columns: '1fr ' + $columns;
+    }
+
+    @media only screen and (min-width:$break-point) {
+        grid-template-columns: unquote($columns);
+        grid-template-rows: 1fr;
+    }
+}
+
+@mixin scrollable-y($min-height) {
+    height:$min-height;
+    overflow-y:auto;
+}
+
+@mixin scrollable-x($min-width) {
+    width:$min-width;
+    overflow-x:auto;
+}

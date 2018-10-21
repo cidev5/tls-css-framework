@@ -1,0 +1,18 @@
+@import 'utils/utils.scss';
+
+@mixin card($padding, $margin: '', $border-color: '', $elevation: '') {
+
+    @if $border-color != '' {
+        border:1px solid $border-color;
+    }
+
+    @if $elevation != '' {
+        @include elevation($elevation)
+    }
+
+    @if $margin != '' {
+        margin:$margin;
+    }
+
+    padding:$padding;
+}

@@ -1,0 +1,11 @@
+@mixin nav-item($padding) {
+    padding:$padding;
+}
+@mixin nav-item-link($padding, $border-radius, $color, $background-color) {
+    background-color:$background-color;
+    color:$color;
+    border-radius:$border-radius;
+    display:inline-block;
+    padding:$padding;
+    text-decoration:none;
+}
