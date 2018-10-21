@@ -46,8 +46,8 @@
 	"scripts": {
 		"start": "npm run watch",
 		"build": "npm run clean && npm run sass",
-		"clean": "rimraf dist",
-		"sass": "node-sass --output-style compressed src/_example.scss dist/example.min.css",
-		"watch": "nodemon -e scss -x \"npm run sass\" && browser-sync start --server --files \"dist/*.css\""
+		"clean": "rimraf dist/css",
+		"sass": "node-sass --output-style compressed src/_example.scss dist/css/example.min.css",
+		"watch": "nodemon -e scss -x \"npm run sass\" && browser-sync start --server --files \"dist/css/*.css\""
 	}
 }
