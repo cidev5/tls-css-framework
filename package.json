@@ -6,7 +6,7 @@
 	"repository": "dawid84/tls-css-framework",
 	"license": "MIT",
 	"author": "Dawid Pawelec <dawid@pawelecweb.com>",
-	"main": "dist/tls.css",
+	"main": "src/_module.scss",
 	"keywords": [
 		"bootstrap",
 		"css",
@@ -44,10 +44,13 @@
 		"node": ">=8"
 	},
 	"scripts": {
-		"start": "npm run watch",
-		"build": "npm run clean && npm run sass",
-		"clean": "rimraf dist",
-		"sass": "node-sass --output-style compressed src/_example.scss dist/example.min.css",
-		"watch": "nodemon -e scss -x \"npm run sass\" && browser-sync start --server --files \"dist/*.css\""
+		"start": "npm run watch-main",
+		"example2": "npm run watch-example2",
+		"build-main": "npm run clean && npm run sass-main",
+		"clean": "rimraf dist/css",
+		"sass-main": "node-sass --output-style compressed examples/css/_example.scss dist/css/example.min.css",
+		"sass-example2": "node-sass --output-style compressed examples/millennial_bank/css/_millennial-bank.scss dist/css/millennial-bank.min.css",
+		"watch-main": "nodemon -e scss -x \"npm run sass-main\"",
+		"watch-example2": "nodemon -e scss -x \"npm run sass-example2\""
 	}
 }

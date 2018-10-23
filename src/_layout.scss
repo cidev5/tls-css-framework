@@ -13,9 +13,27 @@
     }
 }
 
-@mixin row($alignment: center) {
+@mixin row($alignment: center, $justification: '') {
     display:flex;
     align-items:$alignment;
+
+    @if $justification != '' {
+        justify-content:$justification;
+    }
+}
+@mixin row-section($grow, $shrink, $align: 'start|end', $divider-color: '') {
+    flex:auto $grow $shrink;
+
+    @if $align == 'start' {
+        @if $divider-color != '' {
+            border-right:1px solid $divider-color;
+        }
+    } @else if $align == 'end' {
+        @if $divider-color != '' {
+            border-left:1px solid $divider-color;
+        }
+        text-align:right;
+    }
 }
 
 @mixin masthead($background-color, $border-color: '', $adjust-hue: '') {
