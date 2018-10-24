@@ -1,4 +1,6 @@
-@import 'module.scss';
+@import '../../src/module.scss';
+@import 'config.scss';
+@import 'default.scss';
 
 $docs-hue:-100;
 $breakpoint-nav-8:1200px;
