@@ -3,6 +3,7 @@
 @import 'default.scss';
 
 $content-width:66vw;
+$pages-count:5;
 
 .logo{
     @include text-color-link(var(--main-color), var(--main-color));
@@ -29,10 +30,6 @@ $content-width:66vw;
     @include list(0);
     li{
         margin:var(--std-gutter) 0;
-    }
-    a.active{
-        color:var(--main-color);
-        font-weight:600;
     }
 }
 .card-container{
@@ -154,13 +151,15 @@ $content-width:66vw;
 
   .Scenes{
     display:flex;
-    width:$content-width * 3;
+    width:$content-width * $pages-count;
+
+    // The number is the pages to the "left" of the "Home" page, i.e. Help > Settings and Help > Contact
+    transform:translateX(-$content-width * 2);
     .Content{
         width:$content-width;
         z-index:0;
         transform:translateZ( 0 );
         transition:transform 600ms ease-in-out, opacity 600ms ease-in-out;
-        backface-visibility:hidden;
         opacity:1;
         &.over{
             background:#fff;
@@ -173,27 +172,77 @@ $content-width:66vw;
    * Scrolling Scenes
    */
 
-    a[id="snapshot"]:target ~ .Scenes div.Content{
-        transform: translateX(0);
-        &:nth-child(2),
-        &:nth-child(3){
-            opacity:0;
+   %nav-active {
+        color:var(--main-color);
+        font-weight:600;
+   }
+
+    a[id="snapshot"]:target ~ {
+        .Aside .AsideContent .list-nav.general li:nth-child(1) a{
+            @extend %nav-active;
         }
-    } 
-    a[id="network"]:target ~ .Scenes div.Content{
-        transform: translateX(- $content-width);
-        &:nth-child(1),
-        &:nth-child(3){
-            opacity:0;
+
+        .Main .Scenes div.Content{
+            transform: translateX(0);
+            &:not(:nth-child(3)){
+                opacity:0;
+            }
+        } 
+    }
+    a[id="network"]:target ~ {
+        .Aside .AsideContent .list-nav.general li:nth-child(2) a{
+            @extend %nav-active;
+        }
+
+        .Main .Scenes div.Content{
+            transform: translateX(- $content-width);
+            &:not(:nth-child(4)){
+                opacity:0;
+            }
         }
     }
-    a[id="pay"]:target ~ .Scenes section.Content{
-        transform: translateX(- $content-width * 2);
-        &:nth-child(1),
-        &:nth-child(2){
-            opacity:0;
+    a[id="pay"]:target ~ {
+        .Aside .AsideContent .list-nav.general li:nth-child(3) a{
+            @extend %nav-active;
+        }
+        
+        .Main .Scenes div.Content{
+            &:not(:nth-child(5)){
+                opacity:0;
+            }
         }
     }
+    a[id="pay"]:target ~ {
+        .Main .Scenes section.Content{
+            transform: translateX(- $content-width * 2);
+        }
+    }
+    // Help sections
+    a[id="settings"]:target ~ {
+        .Aside .AsideContent .list-nav.help li:nth-child(1) a{
+            @extend %nav-active;
+        }
+
+        .Main .Scenes div.Content{
+            transform: translateX($content-width);
+            &:not(:nth-child(2)){
+                opacity:0;
+            }
+        }
+    }
+    a[id="contact"]:target ~ {
+        .Aside .AsideContent .list-nav.help li:nth-child(2) a{
+            @extend %nav-active;
+        }
+
+        .Main .Scenes div.Content{
+            transform: translateX($content-width * 2);
+            &:not(:nth-child(1)){
+                opacity:0;
+            }
+        }
+    }
+    
 
   .icon-user{
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTkgMTEuMDQxdi0wLjgyNWMxLjEwMi0wLjYyMSAyLTIuMTY4IDItMy43MTYgMC0yLjQ4NSAwLTQuNS0zLTQuNXMtMyAyLjAxNS0zIDQuNWMwIDEuNTQ4IDAuODk4IDMuMDk1IDIgMy43MTZ2MC44MjVjLTMuMzkyIDAuMjc3LTYgMS45NDQtNiAzLjk1OWgxNGMwLTIuMDE1LTIuNjA4LTMuNjgyLTYtMy45NTl6Ij48L3BhdGg+PC9zdmc+);

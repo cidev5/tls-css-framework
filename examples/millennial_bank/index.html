@@ -16,6 +16,11 @@
 <body>
 
     <div class="grid-container">
+        <a class="hidden-anchor" id="contact"></a>
+        <a class="hidden-anchor" id="settings"></a>
+        <a class="hidden-anchor" id="snapshot"></a>
+        <a class="hidden-anchor" id="network"></a>
+        <a class="hidden-anchor" id="pay"></a>
         <div class="Aside">
             <div class="area-overlap AsideMasthead">
                 <h1 class="logo"><a href="/">my mesh</a></h1>
@@ -24,13 +29,13 @@
             </div>
             <div class="AsideContent">
                 Help
-                <ul class="list-nav">
-                    <li><a href="">Settings</a></li>
-                    <li><a href="">Contact</a></li>
+                <ul class="list-nav help">
+                    <li><a href="#settings">Settings</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <hr>
-                <ul class="list-nav">
-                    <li><a href="#snapshot" class="active">Account Snapshot</a></li>
+                <ul class="list-nav general">
+                    <li><a href="#snapshot">Account Snapshot</a></li>
                     <li><a href="#network">Network Activity</a></li>
                     <li><a href="#pay">Pay Bill</a></li>
                 </ul>
@@ -47,10 +52,17 @@
                     <div class="dropdown-profile"><i class="icon-user"></i> Dawid Pawelec</div>
                 </div>
             </div>
-            <a class="hidden-anchor" id="snapshot"></a>
-            <a class="hidden-anchor" id="network"></a>
-            <a class="hidden-anchor" id="pay"></a>
             <div class="Scenes">
+                <div class="Content" id="contact">
+                    <div class="transactions-header">
+                        Contact Support
+                    </div>
+                </div>
+                <div class="Content" id="settings">
+                    <div class="transactions-header">
+                        Settings Configuration
+                    </div>
+                </div>
                 <div class="Content" id="snapshot">
                     Your current plan is $30 a month including taxes and fees
 
@@ -63,7 +75,7 @@
                             <div class="account-balance">4 days</div>
                             <div class="balance-description">Until due date</div>
                         </div>
-                        <div class="container-end"><a href="#">pay</a></div>
+                        <div class="container-end"><a href="#pay">pay</a></div>
                     </div>
                     <hr>
                     <div class="transactions-header">
