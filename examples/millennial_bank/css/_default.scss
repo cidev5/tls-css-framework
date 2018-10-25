@@ -52,3 +52,128 @@ hr {
     border:0;
     border-top:1px solid #eee;
 }
+
+// https://alligator.io/css/collapsible/
+.wrap-collapsible{
+
+    $config: (
+        borderRadius: 6px,
+
+        toggle: (
+            class: 'lbl-toggle',
+            backgroundColor: white
+        ),
+
+        content: (
+            class: 'collpasible-content',
+            innerClass: 'content-inner',
+            transition-duration: 250ms
+        ),
+
+        overlay: (
+            color: rgba(0,0,0,0.05),
+            transitionDuration: 500ms
+        ),
+
+        indicator: (
+            position: 'after',
+            color: currenColor
+        )
+
+    );
+
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    input[type='checkbox'] {
+        display: none;
+    }
+    
+    .lbl-toggle {
+        display: block;
+        padding: 1rem;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.25s ease-out;
+        background-color:white;
+        
+        //   &:before {
+        //     content: ' ';
+        //     display: inline-block;
+          
+        //     border-top: 5px solid transparent;
+        //     border-bottom: 5px solid transparent;
+        //     border-left: 5px solid currentColor;
+          
+        //     vertical-align: middle;
+        //     margin-right: .7rem;
+        //     transform: translateY(-2px);
+          
+        //     transition: transform .2s ease-out;
+        //   }
+
+        &:after {
+            content: ' ';
+            display: inline-block;
+          
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 5px solid currentColor;
+          
+            vertical-align: middle;
+            margin-left: .7rem;
+            transform: translateY(-2px);
+          
+            transition: transform .2s ease-out;
+          }
+      }
+      
+      
+    
+      .collapsible-content {
+        max-height: 0px;
+        overflow: hidden;
+      
+        transition: max-height .25s ease-in-out;
+        .content-inner {
+            background: white;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            padding: .5rem 1rem;
+            transition: all 0.25s ease-out;
+          }
+      }
+    
+    
+      .toggle:checked + .lbl-toggle + .collapsible-content {
+        max-height: 350px;
+      }
+    
+      .toggle:checked + .lbl-toggle::before {
+        transform: rotate(90deg) translateX(0);
+      }
+      .toggle:checked + .lbl-toggle::after {
+        transform: rotate(-90deg) translateX(0);
+      }
+      
+      .toggle:checked+.lbl-toggle {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-color: whitesmoke;
+      }
+      .overlay-toggle{
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 100vh;
+          left: 0;
+          z-index: -1;
+          background-color: rgba(0,0,0,0);
+          transition: background-color 500ms ease-in-out;
+          pointer-events: none;
+      }
+      .toggle:checked ~ .overlay-toggle{
+          background-color: rgba(0,0,0,0.05);
+          pointer-events: all;
+      }
+}

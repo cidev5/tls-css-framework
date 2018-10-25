@@ -163,7 +163,7 @@ $breakpoint-mobile:518px;
   
   .MastheadMain { grid-area: MastheadMain; }
   
-  .MastheadNav { grid-area: MastheadNav; }
+  .MastheadNav { grid-area: MastheadNav; position: relative; }
 
   .Scenes{
     display:flex;
