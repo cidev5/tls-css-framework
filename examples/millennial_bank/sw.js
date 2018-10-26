@@ -3,9 +3,9 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open('myMesh').then(function (cache) {
             return cache.addAll([
-                '/examples/millennial_bank/#snapshot',
-                '/examples/millennial_bank/index.html',
-                '/dist/css/millennial-bank.min.css'
+                '../../examples/millennial_bank/#snapshot',
+                '../../examples/millennial_bank/index.html',
+                '../../dist/css/millennial-bank.min.css'
             ]);
         })
     );
