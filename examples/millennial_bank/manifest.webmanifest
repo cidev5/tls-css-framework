@@ -1,0 +1,14 @@
+{
+    "name": "my mesh | Oakwood Mesh",
+    "short_name": "my mesh",
+    "start_url": "#snapshot",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#00B5FC",
+    "description": "An account management portal for the Oakwood Mesh internet network.",
+    "icons": [{
+      "src": "icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }]
+  }
